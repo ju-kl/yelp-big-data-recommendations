@@ -1,0 +1,41 @@
+## Class: Big Data Platforms
+## Date: 07/23/20
+## Purpose of this file: Load Yelp Tip data into Hive and explore it
+
+
+#######################
+## Data Loading #######
+#######################
+
+
+-- create database for final project group
+create database if not exists big_data_group_2;
+
+
+-- switch to database
+use big_data_group_2;
+
+
+--show all tables under database
+show tables;
+
+
+-- create tip table
+create external table tip (
+business_id string,
+compliment_count int,
+`date` string,
+text string,
+user_id string)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
+STORED AS JSONFILE
+LOCATION '/user/kleindiek/bdp_final_project/tip_json/';
+
+
+-- create user table
+
+
+-- create review table
+
+
+-- create business table
