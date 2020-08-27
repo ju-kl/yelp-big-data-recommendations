@@ -39,3 +39,10 @@ LOCATION '/user/kleindiek/bdp_final_project/tip_json/';
 
 
 -- create business table
+create external table business (business_id string, name string, address string, city string, state string, postal_code string, latitude string, longitude string, stars string, review_count string, is_open string, attributes string, categories string, hours string)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.JsonSerDe'
+STORED AS JSONFILE;
+
+LOAD DATA INPATH '/user/vvenkatesan/data/yelp_academic_dataset_business_manipulated.json' INTO TABLE business;
+
+
